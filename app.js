@@ -41,7 +41,7 @@ const port = process.env.PORT || 8000
 app.use(express.json());
 const allowedOrigins = [
   'https://blinkit-frontend-kvyy.onrender.com',
-  'http://localhost:5645'
+  'http://localhost:5173'
 ];
 
 app.use(cors({
