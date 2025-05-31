@@ -39,10 +39,21 @@ app.use(session({
 const port = process.env.PORT || 8000
 
 app.use(express.json());
+const allowedOrigins = [
+  'https://blinkit-frontend-kvyy.onrender.com',
+  'http://localhost:5645'
+];
+
 app.use(cors({
-    origin: "https://blinkit-frontend-kvyy.onrender.com",
-    credentials: true
-}))
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 
 app.use("/api", authRoute)
 // app.use("/api", insertDataRoute)
