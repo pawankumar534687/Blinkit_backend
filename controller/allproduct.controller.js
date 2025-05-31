@@ -1,4 +1,4 @@
-import products from "../data/realData.js";
+// import products from "../data/realData.js";
 
 import Product from "../models/products.schema.js";
 import ExpressError from "../utils/ExpressError.js";
