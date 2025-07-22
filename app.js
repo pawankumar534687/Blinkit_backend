@@ -35,6 +35,8 @@ app.use(cors({
 app.use(express.json())
 
 // 3. Session middleware after that
+app.set('trust proxy', 1); 
+
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
@@ -48,10 +50,9 @@ app.use(session({
     maxAge: 1000 * 60 * 60 * 24 * 15,
     httpOnly: true,
     secure: true, 
-    sameSite: "None", 
+    sameSite: "None" 
   }
-}))
-
+}));
 
 // Routes
 app.use("/api", authRoute)
