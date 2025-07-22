@@ -7,8 +7,7 @@ const userSchema = mongoose.Schema({
     unique: true,
     match: [/^\+91[0-9]{10}$/, "Please enter a valid phone number"],
   },
-  otp: String,
-  otpExpiry: Date,
+  
   address: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Address",
